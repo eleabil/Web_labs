@@ -6,7 +6,34 @@
     <title>Home - Wimbledon Championship</title>
 
 <style type="text/css">
-  footer {
+  .h1 {
+  font-size: 60px;
+  color: #432581;
+  text-align: center;
+  animation-name: image;
+  animation-duration: 2s;
+}
+@keyframes image {
+from {opacity: 0;color: black;}
+to {opacity: 1; color: #432581;}
+}
+
+
+
+h2 {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Book Antiqua";
+  
+}
+
+h6 {
+  font-size: 27px;
+  color: #00713d;
+  margin: 0px;
+}
+
+footer {
   position: absolute;
   left: 0;
   margin-bottom: 0;
@@ -30,17 +57,6 @@
   width: 200%;
 }
 
-.main-menu {
-  margin: 0;
-  padding: 10px 15px;
-  margin-right:  10px;
-  list-style: none;
-  background-color: #00713d;
-  position: fixed;
-  top: 0%;
-  width: 100%;
-}
-
 .main-menu > li {
   position: relative;
   display: inline-block;
@@ -58,7 +74,17 @@
 
 .main-menu a:hover {
   background-color: #FFFF;
-  color: black; 
+  color: black;
+  animation-name: menu;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+}
+
+@keyframes menu {
+    0% {color: black;}
+    50% {text-shadow: 0 0 2px #432581;}
+    100% {color: black;} 
 }
 
 .main-menu .sub-menu {
@@ -87,6 +113,53 @@
   background-color: #00713d;
   
 }
+
+.img {
+
+  animation-name: logo;
+  animation-duration: 3s;
+
+}
+
+@keyframes logo {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.news {
+  width: auto;
+  text-align: center;
+}
+
+
+table {
+  margin-top: 10%;
+  width: 100%;
+
+}
+.table {
+  background-color: #00713d;
+  color: white;
+}
+
+
+.main-menu {
+  margin: 0;
+  padding: 10px;
+  margin-right:  10px;
+  list-style: none;
+  background-color: #00713d;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 </style>
 
   </head>
@@ -102,11 +175,11 @@
             <li><a href="#players">Players</a></li>
           </ul>
           </li>
-        <li><a href="#news.html">News</a></li>
+        <li><a href="news.html">News</a></li>
         <li><a href="#fans">Fans</a></li>
         <li><a href="#contacts">Contacts</a></li>
         <li><a href="#admin">Admin</a></li>
-        <li style="float: right; margin-right:  20px; "><img src="logo.png" class="img" alt="Wimbledon logo" style = "width: 45px;"></li> 
+        <li style="float: right; margin-right:  20px; "><img src="logo.png" class="img" alt="Wimbledon logo" style = "width: 45px; margin-right: 10px;"></li> 
           </ul>
         
       </div>
@@ -114,7 +187,9 @@
 
 <body>
 
-  <h1 id="main">Вімблдонський турнір</h1>
+<div class="container" >
+<img class="center" src="main-img.jpg" alt="Wimbledon logo">
+</div>
 
   <h2>Історія чемпіонату</h2><hr>
 
