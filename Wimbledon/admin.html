@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
-<html manifest="cache.manifest">
+<html>
   <head>
       <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="style.css">
 
     <title>Home - Wimbledon Championship</title>
  
@@ -63,7 +63,7 @@ a:hover {
   <nav class="navbar navbar-expand-sm  navbar-dark navbar-expand-md" style="background-color: #00713d;">
     
       <a class="navbar-brand" href="wimbledon bootstrap.html">
-        <img src="pictures/logo.png" alt="Wimbledon logo" class="logo" style="width:45px;">
+        <img src="logo.png" alt="Wimbledon logo" class="logo" style="width:45px;">
       </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -108,25 +108,25 @@ a:hover {
 
  
   <div class="container" style="margin-top: 30px;">
-    <img class="img-fluid mx-auto" src="pictures/your image.jpg" alt="your image here" style="width: 200px;">
-    <form name="imageForm" onsubmit="return(validateImage())"> 
+    <img class="img-fluid mx-auto" src="your image.jpg" alt="your image here" style="width: 200px;">
+    <form name="imageForm"> 
       <div class="form-group">
         <input type="file" class="form-control-file border" name="file">
       </div>
-     <button type="button" class="btn submit-btn" >Add image</button>
+     <button type="button" class="btn submit-btn" onclick="validateImage()">Add image</button>
     </form> 
   </div>
  
 
- <form name="newsForm" id="newsForm_id">
+ <form name="newsForm" >
    <div class="container" style="margin-top: 30px;">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="News title" name="title" id="news_title-id">
+      <input type="text" class="form-control" placeholder="News title" name="title" id="title">
     </div>
     <div class="form-group">
-      <textarea type="text" class="form-control" placeholder="News text" name="text" id="news_text_id"></textarea>
+      <textarea type="text" class="form-control" placeholder="News text" name="text" id="text"></textarea>
     </div>
-    <button type="button" class="btn submit-btn" onclick="addNews()">Add news</button>
+    <button type="button" class="btn submit-btn" onclick="validate()">Add news</button>
    </div>
  </form>  
 
@@ -176,7 +176,50 @@ a:hover {
 
 </footer>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript"> 
+  //news title and text validation
+function validate()
+      {
+      
+         if( document.newsForm.title.value == "" || document.newsForm.title.value == " " )
+         {
+            alert( "Please add title!" );
+            document.newsForm.title.focus() ;
+            document.newsForm.title.style.border = "1px solid red";
+            return false;
+         }
+         if (document.newsForm.text.value == "" || document.newsForm.text.value == " ")
+         {
+          alert('You have not added the text!')
+          document.newsForm.text.focus() ;
+          document.newsForm.text.style.border = "1px solid red";
+            return false;
+         } 
+         
+         alert('Your news is added!')
+         return true ;
+      }
+
+  // image validation
+function validateImage()
+      {
+      
+         if( document.imageForm.file.value == "" )
+         {
+            alert( "Please add image!" );
+            document.imageForm.file.focus() ;
+            
+            return false;
+         }
+         
+         
+         alert('Your image is added!');
+         return( true );
+      }      
+
+      </script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 

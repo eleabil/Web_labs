@@ -2,12 +2,12 @@
 <html>
   <head>
       <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+     <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">-->
+      <link rel="stylesheet" type="text/css" href="style.css">
 
     <title>Home - Wimbledon Championship</title>
-     <style type="text/css">
+     <style>
  
 .footer-part
 {
@@ -21,17 +21,14 @@
 .hr {
   border-top: 2px solid #432581;
 }  
-
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
   background-color: #00713d;
 }
-
 .dropdown:hover>.dropdown-menu {
   display: block;
 }
-
 /*footer navigation*/
 a {
   color: #00331b;
@@ -41,18 +38,14 @@ a:hover {
   color: #fff;
   text-decoration: none;
 }
-
 .logo {
-
   animation-name: logo;
   animation-duration: 3s;
 }
-
 @keyframes logo {
   from {opacity: 0;}
   to {opacity: 1;}
 }
-
 .cont {
   margin-top: 50px;
 }
@@ -88,7 +81,6 @@ a:hover {
   background-color: lightgrey;
   border: none;
 }
-
 </style>
 
   </head>
@@ -98,7 +90,7 @@ a:hover {
   <nav class="navbar navbar-expand-sm  navbar-dark navbar-expand-md" style="background-color: #00713d;">
     
       <a class="navbar-brand" href="wimbledon bootstrap.html">
-        <img src="pictures/logo.png" alt="Wimbledon logo" class="logo" style="width:45px;">
+        <img src="logo.png" alt="Wimbledon logo" class="logo" style="width:45px;">
       </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -151,7 +143,7 @@ a:hover {
                 </div>
             </div>
 
-            <div class="card col-sm-12 col-lg-12 mt-3 fan-appeal-card">
+            <div class="card col-sm-12 col-lg-12 mt-3 fan-appeal-card" id="appeal">
                 <div class="card-body fanbox-border" >
                     <p class="card-text">I am fan of tennis from since I was a child. I love watching Wimbledon Championship, and I do it every year.</p>
                     <div class="row">
@@ -179,7 +171,7 @@ a:hover {
                 <div class="form">
                     <textarea class="form-control" rows="5" cols="60" name="message_text" placeholder="Your text here" id="input_text_area"></textarea>
 
-                    <button class="btn submit-btn" type="button" ">Add</button>
+                    <button class="btn submit-btn" type="button" onclick="addFanAppeal()">Add</button>
                 </div>
             </form>
         </div>
@@ -232,7 +224,54 @@ a:hover {
 
 </footer>
 
+      <script>
 
+function addFanAppeal() {
+    var fail = false;
+    var text = document.forms["fan_appeal_form"]["message_text"].value;
+    var currentDate = getCurrentDate();
+    if (text === "" || text === " ") {
+        fail = true
+    }
+    if (fail) {
+        alert("You have not added the text!");
+
+    } else {
+                
+        var template = document.getElementById("appeals");
+        template.innerHTML += "<div class=\"card col-sm-12 col-lg-12 mt-3 fan-appeal-card\" id=\"appeal\">\n" +
+            "                <div class=\"card-body fanbox-border\" >\n" +
+            "                    <p class=\"card-text\">" + text + "</p>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col-md-3\">" + currentDate + "</div>\n" +
+            "                        <div class=\"col-md-8 col-md-offset fan-rightstr\">Username</div>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "            </div>";
+        var input_form = document.forms["fan_appeal_form"];
+        input_form.reset();
+    }
+    return false;
+}
+function getCurrentDate() {
+    var currentdate = new Date();
+    var dd = currentdate.getDate();
+    var mm = currentdate.getMonth() + 1;
+    var yyyy = currentdate.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var datetime = dd + '.' + mm + '.' + yyyy;
+    return datetime
+}
+
+      </script>
+ 
+
+      <script type="text/javascript" src="script.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -240,22 +279,3 @@ a:hover {
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

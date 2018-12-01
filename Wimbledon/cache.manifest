@@ -2,12 +2,9 @@ CACHE MANIFEST
 
 CACHE: 
 index.html
-css/style.css
-bootstrap/css/bootstrap.min.css
-admin.html
-fans.html
-js/fans.js
-js/script.js
+style.css
+schedule.html
+bootstrap.min.css
 
 NETWORK:
 *
